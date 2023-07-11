@@ -14,4 +14,5 @@ const postsClient = clientWithTag(["posts"]);
 export const createPost = async (page: string, content: string) =>
   postsClient.from("posts").insert({ page, content });
 
-export const readPosts = async () => postsClient.from("posts").select();
+export const readPosts = async (page: string) =>
+  postsClient.from("posts").select().eq("page", page);
